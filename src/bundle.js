@@ -872,6 +872,8 @@ console.log(uuid); // Imprime el identificador único generado
 let i = 0;
 let send = document.getElementById('send');
 
+console.log('ADIOS MUNDO TRUCHO');
+
 send.addEventListener('click', () => {
   toJson();
 });
@@ -922,13 +924,10 @@ let GET = () => {
 
   let toJson = () => {
 
-   
-  
     let key1 = uuid;
     let key2 = "Adrián"
     let key3 = document.getElementById('message').value;
     let key4 = '18:31';
-  
   
     let jsonMessage = {
       value1: key1,

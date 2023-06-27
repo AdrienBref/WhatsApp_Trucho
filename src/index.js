@@ -8,6 +8,8 @@ console.log(uuid); // Imprime el identificador único generado
 let i = 0;
 let send = document.getElementById('send');
 
+console.log('ADIOS MUNDO TRUCHO');
+
 send.addEventListener('click', () => {
   toJson();
 });
