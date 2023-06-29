@@ -1,18 +1,100 @@
-const { v4: uuidv4 } = require('uuid');
+// = MAIN ================================================================================
+console.log("Entra al main");
 
-const uuid = uuidv4();
+// Imprime el identificador único generado
+// const { v4: uuidv4 } = require("uuid");
+// const uuid = uuidv4();
+// console.log(uuid);
 
-const url = 'http://localhost:8080';
-console.log(uuid); // Imprime el identificador único generado
+const url = "http://localhost:8080";
+
+var message_mine_counter = 0;
+var message_friend_counter = 0;
+
+
+// Ejecuto mi función send_message() cuando se clican el botón de enviar
+document.getElementById("conversation__submit-button").addEventListener("click", send_message);
+
+// Es una función que ejecuta una función (primer parámetro), cada tantos milisegundos (segundo parámetro)
+// En este caso ejecuta GET cada 500 milisegundos
+// setInterval(receive_message, 500);
+
+print_received_message(/*json*/);
+
+
+
+
+// = ENVÍO ================================================================================
+
+/**
+ * FUNCIÓN SEND_MESSAGE
+ * Se ejecuta cuando el usuario hace click en el botón de enviar
+ * Verifica si el usuario ha escrito un mensaje en la caja de texto, si lo ha hecho, ejecuta las funciones para mostrar el mensaje en el cuadro de conversación y para convertir el mensaje en un JSON y subirlo al servidor
+ */
+function send_message() {
+  console.log("entra a send_message");
+  let message = document.getElementById("conversation__textbox").value;
+  console.log(message);
+
+  if (!(message === "")) {
+    print_message(message);
+    POST(toJson(message));
+  }
+};
+
+/**
+ * FUNCIÓN PRINT_MESSAGE
+ * Función para imprimir el mensaje que envía el usuario en el cuadro de mensajes. Mete el mensaje en texto en un span y un div, para respetar el diseño.
+ */
+function print_message(message) {
+  console.log("entra a print_message");
+
+  // borra la caja de texto
+  document.getElementById("conversation__textbox").value = "";
+
+  // Creo el div
+  let div_message = createElement(
+    "div",
+    "class",
+    "conversation__message-box conversation__message-box--mine",
+    "id",
+    "conversation__message-box--mine" + message_mine_counter
+  );
+
+  // Creo el span
+  let span_message = createElement(
+    "span",
+    "class",
+    "conversation__message-span conversation__message-span--mine",
+    "id",
+    "conversation__message-span--mine" + message_mine_counter
+  );
+
+  // Creo el texto del mensaje
+  let p_message = createElement(
+    "p",
+    "class",
+    "conversation__message-text conversation__message-text--mine",
+    "id",
+    " conversation__message-text--mine" + message_mine_counter
+  );
 
   // Le doy al mensaje el valor que he guardado en la variable message (el mensaje del usuario)
   p_message.textContent = message;
 
-console.log('ADIOS MUNDO TRUCHO');
+  // Pego el div dentro de la caja de chats, luego pego el span dentro del div y luego pego el p dentro del span
+  document.getElementById("conversation__chat").appendChild(div_message);
+  document
+    .getElementById("conversation__message-box--mine" + message_mine_counter)
+    .appendChild(span_message);
+  document
+    .getElementById("conversation__message-span--mine" + message_mine_counter)
+    .appendChild(p_message);
 
-send.addEventListener('click', () => {
-  toJson();
-});
+  // Cuando he terminado todo, sumo +1 al contador para que el siguiente mensaje enviado tenga la misma id pero +1
+  message_mine_counter++;
+  console.log("message_mine_counter:" + message_mine_counter);
+}
 
 /**
  * FUNCIÓN POST
@@ -35,17 +117,15 @@ function POST(json) {
       if (response.ok) {
         return response.text();
       } else {
-        flagConn = false;
-        throw new Error("Error en la solicitud. Código de estado: " + response.status);
+        throw new Error(
+          "Error en la solicitud. Código de estado: " + response.status
+        );
       }
     })
-    .then(responseText => {
+    .then((responseText) => {
       console.log("Respuesta del servidor: " + responseText);
-      i++;
-      console.log(i);
     })
-    .catch(error => {
-      flagConn = false;
+    .catch((error) => {
       console.log("Error en la solicitud: " + error.message);
     });
 }
@@ -72,23 +152,36 @@ function toJson(message) {
   console.log(jsonMessage);
 }
 
-  let POST = (data) => {
-    console.log("hola caracola");
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data) 
-    })
-    .then(response => {
+
+
+
+// = RECEPCIÓN ================================================================================
+
+/**
+ * Función GET
+ * Usa el objeto fetch, para coger un elemento que hay en una URL
+ * Una vez que lo coge, se realiza el método then(), un método del objeto fetch. Este método, pide por parámetro una función (que creamos nosotros), en la que se usa como parámetro el elemento que ha cogido fetch
+ * Si hay varios .then() uno después de otro, cada then() se ejecuta después del anterior, y toma como parámetro una función, que tiene por parámetro el elemento que ha retornado el anterior then()
+ * En este caso, fetch coge un elemento de una URL (la respuesta del otro usuario)
+ * Luego el primer then() hace una función, en la cual, si la respuesta es correcta, la retorna, pero si es incorrecta, va a lanzar un Error, y la ejecución del código saltará directamente al catch().
+ * La respuesta es pasada a otro then(), que imprime la respuesta por consola
+ * Finalmente está el catch, si cualquiera de los then() lanza un Error, la ejecución del código pasa directamente al catch(), que lo va a atrapar
+ */
+function GET() {
+  fetch(url)
+    .then((response) => {
       if (response.ok) {
         return response.text();
       } else {
-        throw new Error("Error en la solicitud. Código de estado: " + response.status);
+        throw new Error(
+          "Error en la solicitud. Código de estado: " + response.status
+        );
       }
     })
-    .then(responseText => {
+    .then((responseText) => {
       console.log("Respuesta del servidor: " + responseText);
     })
-    .catch(error => {
+    .catch((error) => {
       console.log("Error en la solicitud: " + error.message);
     });
 }
