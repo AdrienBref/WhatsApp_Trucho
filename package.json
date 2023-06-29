@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "browserify" : "browserify ./src/index.js -o ./src/bundle.js"
+    "browserify": "browserify ./src/index.js -o ./src/bundle.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "uuid": "^9.0.0"
   }
 }

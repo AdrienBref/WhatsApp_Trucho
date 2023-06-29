@@ -1,18 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-  <div>
-    <input type="text" id="message">
-    <button id="send">Send Data</button>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/chat_style.css" rel="stylesheet" />
+    <title>WhatsappTrucho chat</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="body-header body-header--image">
+      <div class="body-header__contents">
+        <button class="chat__button body-header__button">Cerrar Sesión</button>
+      </div>
+    </header>
 
-  <!-- Contenido de tu página web -->
-  <script src="bundle.js"></script>
-</body>
+    <!-- MAIN - Chat -->
+    <main class="chats">
+      <!-- NAV - Barra lateral de amigos -->
+      <nav class="friends">
+        <header class="friends__header">
+          <h2>Amigos</h2>
+        </header>
+
+        <div class="friends__body">
+          <div class="friends__friend-div">
+            <button class="chat__button friends__friend-button">
+              <img class="chat__friend-photo" src="../assets/icon-1.png" alt="" />
+              <p>Amigo 1</p>
+            </button>
+          </div>
+
+          <div class="friends__friend-div">
+            <button class="chat__button friends__friend-button">
+              <img class="chat__friend-photo" src="../assets/icon-1.png" alt="" />
+              <p>Amigo 2</p>
+            </button>
+          </div>
+
+          <div class="friends__friend-div">
+            <button class="chat__button friends__friend-button">
+              <img class="chat__friend-photo" src="../assets/icon-1.png" alt="" />
+              <p>Amigo 3</p>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ARTICLE - Ventana de conversación -->
+      <article class="conversation">
+        <header class="conversation__header">
+          <img
+            class="chat__friend-photo"
+            src="../assets/icon-1.png"
+            alt="icon-1"
+          />
+          <h2 class="conversation__friend-name">Amigo 1</h2>
+        </header>
+
+        <div class="conversation__chat" id="conversation__chat">
+          <div class="conversation__message-box conversation__message-box--mine">
+            <span class="conversation__message-span conversation__message-span--mine">
+              <p class="conversation__message-text conversation__message-text--mine">
+                mi mensaje 1
+              </p>
+            </span>
+          </div>
+
+          <div class="conversation__message-box conversation__message-box--friend">
+            <span class="conversation__message-span conversation__message-span--friend">
+              <p>mensaje amigo 1</p>
+            </span>
+          </div>
+        </div>
+
+        <div class="conversation__input">
+          <div class="conversation__textbox-box">
+            <input
+              class="conversation__textbox"
+              id="conversation__textbox"
+              type="text"
+              name="user_input"
+              placeholder="Escribe un mensaje"
+            />
+          </div>
+
+          <div class="conversation__submit-button-box">
+            <button
+              class="chat__button conversation__submit-button"
+              id="conversation__submit-button">
+              ENVIAR
+            </button>
+          </div>
+        </div>
+      </article>
+    </main>
+
+   
+    <!-- Contenido de tu página web -->
+    <script src="bundle.js"></script>
+    <!-- <script src="index.js"></script> -->
+
+  </body>
 </html>

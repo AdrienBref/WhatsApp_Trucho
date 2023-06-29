@@ -1,0 +1,519 @@
+/* paleta de color (temporal): https://colorhunt.co/palette/f6f1f1afd3e219a7ce146c94 */
+
+/* RESETEO DE ESTILOS DEL NAVEGADOR */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* =========================================================================== */
+
+/* BODY ===================================================== */
+
+body {
+  overflow: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #EBF0ED;
+  font-size:13px;
+}
+
+/* ELEMENTOS GENERALES ===================================================== */
+/* BOTONES */
+.chat__button {
+  background-color: #fafcfb;
+  border: none;
+  border-radius: 5px; 
+  margin: 5px 8px 5px 8px;
+}
+
+.chat__button:hover {
+  background-color: #ebf0ed;
+}
+
+.chat__button:active {
+  background-color: #dce4df;
+}
+
+/* FOTOS */
+.chat__friend-photo {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 30px;
+  margin: 10px;
+  background-color: #ebf0ed;
+}
+
+
+/* BODY HEADER ===================================================== */
+
+.body-header {
+  /* posicionamiento */
+  position: absolute;
+  height: 150px;
+
+  /* tamaño */
+  width: 100%;
+
+  /* estilo */
+  background-color: #62C476;
+  /* background-image: linear-gradient(to right, #287333, #62c476); */
+  color: #fafcfb;
+
+  /* posicionamiento contenido */
+  display: flex;
+  justify-content: center;
+}
+
+.body-header__contents {
+  /* posicionamiento */
+  position: relative;
+  right: 5vw;
+
+
+  /* tamaño */
+  width: 100%;
+  height: 90px;
+  
+  /* posicionamiento contenido */
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  
+  
+}
+
+.body-header__button{
+  height:30px;
+  margin-top: 20px;
+  
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  
+  border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+/* .body-header__title-box { */
+  /* posicionamiento */
+  /* position: relative;
+  height: 60%; */
+
+  /* tamaño */
+  /* width: 30%; */
+
+  /* posicionamiento contenido */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+
+/* } */
+
+
+
+/* .body-header__fish-box {
+  width: 70%;
+  overflow: hidden;
+}
+
+.body-header__fish-logo {
+  width: 500px;
+  position: relative;
+  bottom: 35px;
+  left: 20px;
+
+  filter: invert(100%);
+-webkit-filter: invert(100%);
+-moz-filter: invert(100%);
+} */
+
+
+
+
+/* CHAT ===================================================== */
+.chats {
+  /* posicionamiento */
+  position: relative;
+  top: 90px;
+
+  /* centrado */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* tamaño */
+  width: 90vw;
+  height: 80vh;
+
+  /* estilo */
+  background-color: #fafcfb;
+  border-radius: 8px;
+  border: 1px solid #ced8d0;
+
+  /* posicion contentido */
+  display: flex;
+
+ 
+}
+
+/* AMIGOS ===================================================== */
+
+.friends {
+  /* posicionamiento */
+  width: 30%;
+  min-width: 200px;
+  max-width:300px;
+
+  /* estilo */
+  font-weight: bold;
+  border-right: 1px solid #ced8d0;
+
+  /* posicion contenido */
+  overflow: auto; 
+}
+
+.friends__header {
+  /* tamaño */
+  height: 50px;
+
+  /* estilo */
+  padding-left: 35px;
+  border-bottom:1px solid  #ced8d0;
+
+   /* posicion contenido */
+  display: flex;
+  align-items: center;
+  
+  
+}
+
+.friends__body{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.friends__friend-div {
+  /* tamaño */
+  width:100%;
+
+  /* estilo */
+  font-weight: bold;
+  border-bottom: 1px solid #ced8d0;
+  
+
+  /* posicion contenido */
+  display: flex;
+  flex-direction:row; 
+  justify-content: center; 
+  align-items:center;
+}
+
+.friends__friend-button {
+  /* tamaño */
+  width:100%;
+  height:100%;
+
+  /* estilo */
+  font-weight: bold;
+
+  /* posicion contenido */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  
+  
+}
+
+/* Arreglar comportamiento de los botones para que sea como whatsapp, hay que usar javascript */
+.friends__friend-button:focus {
+  background-color:#DCE4DF ;
+
+}
+
+.friends__friend-button:active {
+  background-color:#CED8D0 ;
+}
+
+.friends__friend-button:focus:hover {
+  background-color:#C0CCC2;
+
+}
+
+
+/* .friends__friend-photo {
+} */
+
+/* .friends__friend-name {
+} */
+
+
+
+
+/* CONVERSACION ===================================================== */
+
+.conversation {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-bottom-right-radius: 10px;
+}
+
+.conversation__header {
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ced8d0;
+}
+
+.conversation__friend-name {
+  font-weight: bold;
+}
+
+
+/* - VENTANA CONVERSACION ===================================================== */
+
+.conversation__chat {
+  padding: 30px;
+  overflow: auto;
+  height: 100%;
+  
+ 
+}
+
+.conversation__message-box {
+  margin-bottom:3px;
+}
+
+.conversation__message-box--mine {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.conversation__message-box--friend {
+  display: flex;
+}
+
+.conversation__message-span {
+  padding: 10px 30px 10px 10px;
+  border-radius: 5px;
+}
+
+.conversation__message-span--mine {
+  background-color: #FAFCFB;
+  border: 1px solid #ced8d0;
+}
+
+.conversation__message-span--friend {
+  background-color: #287333;
+  color:#FAFCFB;
+  border: 1px solid #ced8d0;
+}
+
+
+/* - CONVERSACION INPUT ===================================================== */
+
+.conversation__input {
+  /* posicionamiento */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  /* tamaño */
+  width: 100%;
+  height: 50px;
+
+  /* estilo */
+  background-color: #fafcfb;
+  border-top: 1px solid #ced8d0;
+
+  /* contenido */
+  display: flex;
+}
+
+.conversation__textbox-box {
+  width: 87%;
+  
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+.conversation__submit-button-box {
+  width: 13%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  
+}
+
+.conversation__textbox {
+  height: 100%;
+  width: 90%;
+  border: none;
+  background-color: #fafcfb;
+}
+
+.conversation__textbox:focus {
+  outline: none;
+}
+
+.conversation__submit-button {
+  height: 85%;
+  
+  width: 60px;
+  
+  color:#287333;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  
+}
+
+
+
+/* FOOTER ===================================================== */
+
+footer {
+  /* posicionamiento */
+  position: relative;
+  top: 100px;
+
+  /* centrado */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* estilo */
+  background-color: magenta;
+  text-align: center;
+}
