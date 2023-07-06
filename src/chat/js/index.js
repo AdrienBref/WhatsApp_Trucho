@@ -6,7 +6,7 @@ console.log("Entra al main");
 // const uuid = uuidv4();
 // console.log(uuid);
 
-const url = "http://localhost:8080";
+const url = "http://localhost:8081";
 
 var message_mine_counter = 0;
 var message_friend_counter = 0;
