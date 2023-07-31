@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../css/chat_style.css" rel="stylesheet" />
+    <link href="chat_style.css" rel="stylesheet" />
     <title>WhatsappTrucho chat</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+    <script defer src="index.js" type="module"></script>
+
   </head>
   <body>
     <!-- HEADER -->
@@ -25,21 +29,21 @@
         <div class="friends__body">
           <div class="friends__friend-div">
             <button class="chat__button friends__friend-button">
-              <img class="chat__friend-photo" src="../assets/icon-1.png" alt="" />
+              <img class="chat__friend-photo" src="../../assets/icon-1.png" alt="" />
               <p>Amigo 1</p>
             </button>
           </div>
 
           <div class="friends__friend-div">
             <button class="chat__button friends__friend-button">
-              <img class="chat__friend-photo" src="../assets/icon-1.png" alt="" />
+              <img class="chat__friend-photo" src="../../assets/icon-1.png" alt="" />
               <p>Amigo 2</p>
             </button>
           </div>
 
           <div class="friends__friend-div">
             <button class="chat__button friends__friend-button">
-              <img class="chat__friend-photo" src="../assets/icon-1.png" alt="" />
+              <img class="chat__friend-photo" src="../../assets/icon-1.png" alt="" />
               <p>Amigo 3</p>
             </button>
           </div>
@@ -51,7 +55,7 @@
         <header class="conversation__header">
           <img
             class="chat__friend-photo"
-            src="../assets/icon-1.png"
+            src="../../assets/icon-1.png"
             alt="icon-1"
           />
           <h2 class="conversation__friend-name">Amigo 1</h2>
@@ -94,11 +98,5 @@
         </div>
       </article>
     </main>
-
-   
-    <!-- Contenido de tu página web -->
-    <script src="../js/bundle.js"></script>
-    <!-- <script src="index.js"></script> -->
-
   </body>
 </html>
